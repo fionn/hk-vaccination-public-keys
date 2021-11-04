@@ -1,0 +1,19 @@
+name: CI
+
+on: push
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Decode to binary
+      run: bash to_bin.sh
+
+    - name: Validate keys
+      run: bash validate.sh
